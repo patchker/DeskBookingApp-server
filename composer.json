@@ -1,0 +1,9 @@
+{
+    "require": {
+        "slim/slim": "^4.11",
+        "phpmailer/phpmailer": "^6.8",
+        "nyholm/psr7": "^1.8",
+        "slim/psr7": "^1.6",
+        "tuupola/cors-middleware": "^1.4"
+    }
+}

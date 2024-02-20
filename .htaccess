@@ -1,0 +1,14 @@
+RewriteEngine On
+RewriteBase /
+
+# Jeśli żądanie pasuje do istniejącego pliku, nie rób nic
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Przekieruj żądania do API
+RewriteCond %{REQUEST_URI} ^/(verifyPin|getDesks|reservation|getReservedDesks)$
+RewriteRule ^ index.php [QSA,L]
+
+# Wszystko inne przekieruj do aplikacji React
+RewriteRule ^ index.html [QSA,L]
