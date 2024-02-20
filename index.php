@@ -34,7 +34,6 @@ $app->post('/verifyPin', function (Request $request, Response $response, $args) 
     $receivedPin = $body['pin'] ?? '';
 
 
-    // Twój kod do połączenia z bazą danych tutaj. Dla przykładu:
     $host = 'localhost';
     $db = 'baza74815_3';
     $user = 'root';
@@ -183,7 +182,7 @@ if ($user) {
     if ((string) $storedPin === (string) $pin) {
         // Zapytanie do bazy danych o PIN
         $stmt = $pdo->prepare("SELECT id FROM booking_miejsce WHERE did = ?");
-        $stmt->execute([$did]); // Zakładając, że PIN przechowywany jest dla użytkownika o id 1
+        $stmt->execute([$did]);
         $miejsceid = $stmt->fetchColumn();
 
         $currentDateTime = date('Y-m-d');
